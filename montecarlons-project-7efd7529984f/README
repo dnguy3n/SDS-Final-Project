@@ -1,0 +1,12 @@
+Principal Components
+1. Grid Setup
+2. Sampling Methods
+3. Navier-Stokes Solver
+4. Result output & comparison
+
+"problem.c" is the main file that runs everything
+    -first it specifies the initial conditions 
+    -then chooses a grid
+    -then chooses a sampling method and samples to fill the temperature array
+    -then the nv solver uses finite differences to create a new temperature array one timestep forward
+    -after a specified number of timesteps we output the result
