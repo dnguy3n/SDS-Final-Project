@@ -1,0 +1,185 @@
+#make project is what you should run
+program_NAME := problem
+program_C_SRCS := $(wildcard *.c)
+CC := icc
+CFLAGS := -O3
+LDFLAGS := -L/usr/lib
+LDLIBS := -lm
+LAPACK := -mkl
+
+.PHONY: clobber clean neat echo
+	clobber: clean
+	        $(RM) $(EXEC)
+project: problem.o
+	$(CC) $(CFLAGS) $(LAPACK)  problem.c quad_grid.c initial_conditions.c nv_solver.c def_sample.c -o problem.o
+
+clean: neat
+	        $(RM) $(OBJ)
+neat:
+	        $(RM) *.o
+echo:
+	        @echo $(OBJ)
+
+depend:
+	    makedepend -- $(CPPFLAGS) $(CFLAGS) -- $(program_C_SRCS)
+
+# Don't place anything below this line, since
+# # the make depend program will overwrite it
+# # DO NOT DELETE THIS LINE -- make depend depends on it.
+# DO NOT DELETE
+
+def_sample.o: /usr/include/stdio.h /usr/include/features.h
+def_sample.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+def_sample.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+def_sample.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+def_sample.o: /usr/include/libio.h /usr/include/_G_config.h
+def_sample.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+def_sample.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+def_sample.o: /usr/include/sys/types.h /usr/include/time.h
+def_sample.o: /usr/include/endian.h /usr/include/bits/endian.h
+def_sample.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+def_sample.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+def_sample.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+def_sample.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+def_sample.o: /usr/include/math.h /usr/include/bits/huge_val.h
+def_sample.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+def_sample.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+def_sample.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+def_sample.o: def_sample.h
+initial_conditions.o: /usr/include/stdlib.h /usr/include/features.h
+initial_conditions.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+initial_conditions.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+initial_conditions.o: /usr/include/sys/types.h /usr/include/bits/types.h
+initial_conditions.o: /usr/include/bits/typesizes.h /usr/include/time.h
+initial_conditions.o: /usr/include/endian.h /usr/include/bits/endian.h
+initial_conditions.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+initial_conditions.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+initial_conditions.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+initial_conditions.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+initial_conditions.o: /usr/include/stdio.h /usr/include/libio.h
+initial_conditions.o: /usr/include/_G_config.h /usr/include/wchar.h
+initial_conditions.o: /usr/include/bits/stdio_lim.h
+initial_conditions.o: /usr/include/bits/sys_errlist.h /usr/include/math.h
+initial_conditions.o: /usr/include/bits/huge_val.h
+initial_conditions.o: /usr/include/bits/huge_valf.h
+initial_conditions.o: /usr/include/bits/huge_vall.h /usr/include/bits/inf.h
+initial_conditions.o: /usr/include/bits/nan.h /usr/include/bits/mathdef.h
+initial_conditions.o: /usr/include/bits/mathcalls.h initial_conditions.h
+monte_carlo.o: /usr/include/stdlib.h /usr/include/features.h
+monte_carlo.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+monte_carlo.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+monte_carlo.o: /usr/include/sys/types.h /usr/include/bits/types.h
+monte_carlo.o: /usr/include/bits/typesizes.h /usr/include/time.h
+monte_carlo.o: /usr/include/endian.h /usr/include/bits/endian.h
+monte_carlo.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+monte_carlo.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+monte_carlo.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+monte_carlo.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+monte_carlo.o: /usr/include/stdio.h /usr/include/libio.h
+monte_carlo.o: /usr/include/_G_config.h /usr/include/wchar.h
+monte_carlo.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+monte_carlo.o: /usr/include/math.h /usr/include/bits/huge_val.h
+monte_carlo.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+monte_carlo.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+monte_carlo.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+nv_solver.o: /usr/include/stdlib.h /usr/include/features.h
+nv_solver.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+nv_solver.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+nv_solver.o: /usr/include/sys/types.h /usr/include/bits/types.h
+nv_solver.o: /usr/include/bits/typesizes.h /usr/include/time.h
+nv_solver.o: /usr/include/endian.h /usr/include/bits/endian.h
+nv_solver.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+nv_solver.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+nv_solver.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+nv_solver.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+nv_solver.o: /usr/include/stdio.h /usr/include/libio.h
+nv_solver.o: /usr/include/_G_config.h /usr/include/wchar.h
+nv_solver.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+nv_solver.o: /usr/include/math.h /usr/include/bits/huge_val.h
+nv_solver.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+nv_solver.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+nv_solver.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+nv_solver.o: nv_solver.h
+problem.o: /usr/include/stdio.h /usr/include/features.h
+problem.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+problem.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+problem.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+problem.o: /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h
+problem.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+problem.o: /usr/include/math.h /usr/include/bits/huge_val.h
+problem.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+problem.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+problem.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+problem.o: initial_conditions.h quad_grid.h rect_grid.h tri_grid.h
+problem.o: def_sample.h imp_sample.h sys_sample.h nv_solver.h
+quad_grid.o: /usr/include/stdlib.h /usr/include/features.h
+quad_grid.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+quad_grid.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+quad_grid.o: /usr/include/sys/types.h /usr/include/bits/types.h
+quad_grid.o: /usr/include/bits/typesizes.h /usr/include/time.h
+quad_grid.o: /usr/include/endian.h /usr/include/bits/endian.h
+quad_grid.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+quad_grid.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+quad_grid.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+quad_grid.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+quad_grid.o: /usr/include/stdio.h /usr/include/libio.h
+quad_grid.o: /usr/include/_G_config.h /usr/include/wchar.h
+quad_grid.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+quad_grid.o: /usr/include/math.h /usr/include/bits/huge_val.h
+quad_grid.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+quad_grid.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+quad_grid.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+quad_grid.o: quad_grid.h
+rect_grid.o: /usr/include/stdlib.h /usr/include/features.h
+rect_grid.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+rect_grid.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+rect_grid.o: /usr/include/sys/types.h /usr/include/bits/types.h
+rect_grid.o: /usr/include/bits/typesizes.h /usr/include/time.h
+rect_grid.o: /usr/include/endian.h /usr/include/bits/endian.h
+rect_grid.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+rect_grid.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+rect_grid.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+rect_grid.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+rect_grid.o: /usr/include/stdio.h /usr/include/libio.h
+rect_grid.o: /usr/include/_G_config.h /usr/include/wchar.h
+rect_grid.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+rect_grid.o: /usr/include/math.h /usr/include/bits/huge_val.h
+rect_grid.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+rect_grid.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+rect_grid.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+rect_grid.o: rect_grid.h
+sys_sample.o: /usr/include/stdio.h /usr/include/features.h
+sys_sample.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+sys_sample.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+sys_sample.o: /usr/include/bits/types.h /usr/include/bits/typesizes.h
+sys_sample.o: /usr/include/libio.h /usr/include/_G_config.h
+sys_sample.o: /usr/include/wchar.h /usr/include/bits/stdio_lim.h
+sys_sample.o: /usr/include/bits/sys_errlist.h /usr/include/stdlib.h
+sys_sample.o: /usr/include/sys/types.h /usr/include/time.h
+sys_sample.o: /usr/include/endian.h /usr/include/bits/endian.h
+sys_sample.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+sys_sample.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+sys_sample.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+sys_sample.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+sys_sample.o: /usr/include/math.h /usr/include/bits/huge_val.h
+sys_sample.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+sys_sample.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+sys_sample.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+tri_grid.o: /usr/include/stdlib.h /usr/include/features.h
+tri_grid.o: /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h
+tri_grid.o: /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h
+tri_grid.o: /usr/include/sys/types.h /usr/include/bits/types.h
+tri_grid.o: /usr/include/bits/typesizes.h /usr/include/time.h
+tri_grid.o: /usr/include/endian.h /usr/include/bits/endian.h
+tri_grid.o: /usr/include/bits/byteswap.h /usr/include/sys/select.h
+tri_grid.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+tri_grid.o: /usr/include/bits/time.h /usr/include/sys/sysmacros.h
+tri_grid.o: /usr/include/bits/pthreadtypes.h /usr/include/alloca.h
+tri_grid.o: /usr/include/stdio.h /usr/include/libio.h
+tri_grid.o: /usr/include/_G_config.h /usr/include/wchar.h
+tri_grid.o: /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h
+tri_grid.o: /usr/include/math.h /usr/include/bits/huge_val.h
+tri_grid.o: /usr/include/bits/huge_valf.h /usr/include/bits/huge_vall.h
+tri_grid.o: /usr/include/bits/inf.h /usr/include/bits/nan.h
+tri_grid.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+tri_grid.o: tri_grid.h
